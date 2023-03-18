@@ -11,7 +11,7 @@ public class TestClass {
         JdbcCustomerRepository repo = new JdbcCustomerRepository();
 
         // read all ////////////////////////////////
-
+        System.out.println("\nRead all");
         List<Customer> list = repo.readAll();
         for (Customer c :
                 list) {
@@ -19,28 +19,28 @@ public class TestClass {
         }
 
         // create //////////////////////////////////
-
+        System.out.println("\nCreate");
         Customer customer1 = new Customer();
         customer1.setName("Akinf");
         System.out.println(repo.create(customer1));
         System.out.println(customer1.getId());
 
         // read by id //////////////////////////////
-
-        Customer customer2 = repo.read(26);
+        System.out.println("\nRead by id");
+        Customer customer2 = repo.read(7);
         System.out.println(customer2);
 
         // update //////////////////////////////////
-
+        System.out.println("\nUpdate");
         customer2.setName("Pro");
         System.out.println(repo.update(customer2));
 
         // delete //////////////////////////////////
-
-        System.out.println(repo.delete(36));
+        System.out.println("\nDelete");
+        System.out.println(repo.delete(3));
 
         // read all ////////////////////////////////
-
+        System.out.println("\nRead add");
         list = repo.readAll();
         for (Customer c :
                 list) {
