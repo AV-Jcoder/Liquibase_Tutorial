@@ -11,6 +11,20 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <psql.version>42.5.4</psql.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${psql.version}</version>
+        </dependency>
+
+
+
+
+
+    </dependencies>
 
 </project>
