@@ -21,23 +21,23 @@ public class TestClass {
         // create //////////////////////////////////
         System.out.println("\nCreate");
         Customer customer1 = new Customer();
-        customer1.setName("Akinf");
+        customer1.setName("Lolik");
         System.out.println(repo.create(customer1));
         System.out.println(customer1.getId());
 
         // read by id //////////////////////////////
         System.out.println("\nRead by id");
-        Customer customer2 = repo.read(7);
+        Customer customer2 = repo.read(2);
         System.out.println(customer2);
 
         // update //////////////////////////////////
         System.out.println("\nUpdate");
-        customer2.setName("Pro");
+        customer2.setName("Pro " + customer2.getName());
         System.out.println(repo.update(customer2));
 
         // delete //////////////////////////////////
         System.out.println("\nDelete");
-        System.out.println(repo.delete(3));
+        System.out.println(repo.delete(11));
 
         // read all ////////////////////////////////
         System.out.println("\nRead add");

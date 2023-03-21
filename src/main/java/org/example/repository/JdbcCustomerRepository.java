@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 
 public class JdbcCustomerRepository {
 
-    private final static String CREATE = "INSERT INTO customers (name) VALUES (?) RETURNING customer_id;";
+    private final static String CREATE = "INSERT INTO customers (name) VALUES (?) ;";
     private final static String READ_ALL = "SELECT * FROM customers;";
     private final static String GET_NEXT_ID = "SELECT nextval('customers_customer_id_seq');";
     private final static String GET_BY_ID = "SELECT * FROM customers WHERE customer_id = (?);";
@@ -18,9 +18,10 @@ public class JdbcCustomerRepository {
 
     public boolean create(Customer customer) {
         try(Connection connection = getConnection();
-            PreparedStatement statement = connection.prepareStatement(CREATE)) {
+            PreparedStatement statement = connection.prepareStatement(CREATE, new String[]{"customer_id"})) {
             statement.setString(1,customer.getName());
-            ResultSet result = statement.executeQuery();
+            statement.executeUpdate();
+            ResultSet result = statement.getGeneratedKeys();
             if (result.next()) {
                 customer.setId(result.getInt("customer_id"));
             }
